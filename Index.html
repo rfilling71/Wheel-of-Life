@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Wheel of Life — Aspirational vs. Actual&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://cdn.jsdelivr.net" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root { --bg:#0f1226; --card:#151936; --muted:#8c93bd; --text:#eef0ff; --accent:#6f8cff; --danger:#ff6f91; --ok:#2ad1a3; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>* { box-sizing: border-box; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:linear-gradient(120deg,#0f1226,#1a1f48); color:var(--text); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header { padding:28px 20px; text-align:center; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header h1 { margin:0 0 8px; font-size:28px; font-weight:700; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header p { margin:0; color:var(--muted); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container { max-width: 1100px; margin: 0 auto; padding: 0 20px 40px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid { display:grid; grid-template-columns: 1fr; gap:18px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (min-width: 960px) { .grid { grid-template-columns: 1.2fr 1fr; } }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius:16px; padding:18px; backdrop-filter: blur(8px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card h2 { margin:0 0 12px; font-size:18px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.subtle { color:var(--muted); font-size:14px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.toolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn { padding:8px 12px; background:var(--card); border:1px solid rgba(255,255,255,0.12); color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">           </span>border-radius:10px; cursor:pointer; transition:.18s; font-weight:600; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.25); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.primary { background: var(--accent); border-color: transparent; color:white; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.ghost { background: transparent; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn.danger { background: #2a1530; border-color: rgba(255,110,145,.35); color:#ffc0d1; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>table { width:100%; border-collapse: collapse; overflow:hidden; border-radius: 12px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>thead th { text-align:left; font-size:12px; letter-spacing: .03em; text-transform: uppercase; color:var(--muted); border-bottom:1px solid rgba(255,255,255,.08); padding:10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tbody td { padding:8px 10px; border-bottom:1px dashed rgba(255,255,255,.07); vertical-align: middle; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>tbody tr:last-child td { border-bottom: none; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>input[type="text"], input[type="number"] {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width:100%; padding:8px 10px; background:#11152e; border:1px solid rgba(255,255,255,0.12); color:var(--text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius:8px; outline:none; transition: border-color .2s, box-shadow .2s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input[type="text"]:focus, input[type="number"]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(111,140,255,.18); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input[type="number"] { text-align:right; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.totals { display:flex; gap:14px; flex-wrap:wrap; margin:10px 0 0; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.pill { padding:6px 10px; border-radius:999px; background:#101432; border:1px solid rgba(255,255,255,0.08); font-size:12px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.warn { color:#ffd7a8; border-color: rgba(255,215,168,.35); background: #2b1f12; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.ok <span class="Apple-converted-space">  </span>{ color:#baf5e7; border-color: rgba(42,209,163,.35); background: #122b22; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.charts { display:grid; grid-template-columns: 1fr; gap:16px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (min-width: 720px) { .charts { grid-template-columns: 1fr 1fr; } }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.footer-note { margin-top:8px; font-size:12px; color:var(--muted); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.row-actions { display:flex; gap:6px; justify-content:flex-end; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Wheel of Life&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="subtle"&gt;Compare where you are to where you want to be. See the gaps, choose the next step.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Categories and inputs&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="toolbar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="btn primary" id="addRowBtn"&gt;+ Add category&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="btn ghost" id="resetBtn"&gt;Reset to example&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button class="btn" id="exportBtn"&gt;Export JSON&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label class="btn" for="importFile" style="cursor:pointer;"&gt;Import JSON&lt;input type="file" id="importFile" accept="application/json" style="display:none;"&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="overflow:auto;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;table id="dataTable" aria-label="Wheel of Life table"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th&gt;Category&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th style="width:140px;"&gt;Aspirational&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th style="width:140px;"&gt;Actual&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th style="width:140px;"&gt;Difference&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;th style="width:60px;"&gt;&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;tbody id="tbody"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;!-- rows injected --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="totals" id="totals"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="footer-note"&gt;Tip: Values can be any numbers. Many people use percentages summing to 100.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Charts&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="charts"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;canvas id="aspChart" aria-label="Aspirational chart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;canvas id="actChart" aria-label="Actual chart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="margin-top:16px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;canvas id="diffChart" aria-label="Difference chart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="footer-note"&gt;Difference = Aspirational − Actual. Positive bars show where you want more than you have.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ----- Initial data (from your spreadsheet; label cleaned to "Family/Friends") -----</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const DEFAULT_DATA = [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ label: "Work", aspirational: 20, actual: 40 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ label: "Family/Friends", aspirational: 35, actual: 35 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ label: "Social/Community", aspirational: 10, actual: 5 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ label: "Health/Self", aspirational: 25, actual: 15 },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{ label: "Fulfillment/Purpose", aspirational: 10, actual: 5 },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const STORAGE_KEY = "wheel_of_life_data_v1";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const colors = [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"#6F8CFF","#2AD1A3","#FFD166","#EF476F","#8E7DFF",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>"#06D6A0","#F78C6B","#73C2FB","#C5E86C","#F7B32B"</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let state = loadState() || structuredClone(DEFAULT_DATA);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ----- DOM refs -----</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const tbody = document.getElementById("tbody");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const totals = document.getElementById("totals");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const addRowBtn = document.getElementById("addRowBtn");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const resetBtn = document.getElementById("resetBtn");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const exportBtn = document.getElementById("exportBtn");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const importFile = document.getElementById("importFile");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ----- Charts -----</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const aspCtx = document.getElementById("aspChart");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const actCtx = document.getElementById("actChart");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const diffCtx = document.getElementById("diffChart");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const chartBaseOptions = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>plugins: {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>legend: { labels: { color: "#eef0ff" } },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tooltip: { callbacks: { label: ctx =&gt; `${ctx.label}: ${fmt(ctx.raw)}` } }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let aspChart = new Chart(aspCtx, {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>type: "doughnut",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>data: { labels: [], datasets: [{ label: "Aspirational", data: [], backgroundColor: [] }] },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>options: { ...chartBaseOptions, cutout: "55%" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let actChart = new Chart(actCtx, {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>type: "doughnut",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>data: { labels: [], datasets: [{ label: "Actual", data: [], backgroundColor: [] }] },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>options: { ...chartBaseOptions, cutout: "55%" }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let diffChart = new Chart(diffCtx, {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>type: "bar",</p>
+<p class="p1"><span class="Apple-converted-space">      </span>data: { labels: [], datasets: [{ label: "Difference (Asp - Act)", data: [], backgroundColor: [] }] },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>plugins: { legend: { labels: { color: "#eef0ff" } } },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>scales: {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>x: { ticks: { color: "#eef0ff" }, grid: { color: "rgba(255,255,255,.08)" } },</p>
+<p class="p1"><span class="Apple-converted-space">          </span>y: { ticks: { color: "#eef0ff" }, grid: { color: "rgba(255,255,255,.08)" } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ----- Render -----</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function render() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Table body</p>
+<p class="p1"><span class="Apple-converted-space">      </span>tbody.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.forEach((row, idx) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const tr = document.createElement("tr");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const tdLabel = document.createElement("td");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const inLabel = document.createElement("input");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inLabel.type = "text";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inLabel.value = row.label;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inLabel.ariaLabel = "Category label";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inLabel.addEventListener("input", e =&gt; { row.label = e.target.value; persistAndUpdate(); });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tdLabel.appendChild(inLabel);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const tdAsp = document.createElement("td");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const inAsp = document.createElement("input");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inAsp.type = "number"; inAsp.min = "0"; inAsp.step = "any";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inAsp.value = row.aspirational;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inAsp.addEventListener("input", e =&gt; { row.aspirational = num(e.target.value); persistAndUpdate(); });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tdAsp.appendChild(inAsp);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const tdAct = document.createElement("td");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const inAct = document.createElement("input");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inAct.type = "number"; inAct.min = "0"; inAct.step = "any";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inAct.value = row.actual;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inAct.addEventListener("input", e =&gt; { row.actual = num(e.target.value); persistAndUpdate(); });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tdAct.appendChild(inAct);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const tdDiff = document.createElement("td");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const diff = (num(row.aspirational) - num(row.actual));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tdDiff.textContent = fmt(diff);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tdDiff.style.color = diff &gt;= 0 ? "#baf5e7" : "#ffc0d1";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const tdActions = document.createElement("td");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const actions = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>actions.className = "row-actions";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const delBtn = document.createElement("button");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>delBtn.className = "btn danger";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>delBtn.textContent = "Delete";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>delBtn.addEventListener("click", () =&gt; { state.splice(idx,1); persistAndUpdate(); });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>actions.appendChild(delBtn);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tdActions.appendChild(actions);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>tr.append(tdLabel, tdAsp, tdAct, tdDiff, tdActions);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tbody.appendChild(tr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Totals</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const totalAsp = sum(state.map(r =&gt; num(r.aspirational)));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const totalAct = sum(state.map(r =&gt; num(r.actual)));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>totals.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const pillAsp = pill(`Aspirational total: ${fmt(totalAsp)}`, totalAsp === 100 ? "ok" : "");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const pillAct = pill(`Actual total: ${fmt(totalAct)}`, totalAct === 100 ? "ok" : "");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const pillNote = pill(</p>
+<p class="p1"><span class="Apple-converted-space">        </span>totalAsp !== 100 || totalAct !== 100</p>
+<p class="p1"><span class="Apple-converted-space">          </span>? "Note: Totals don’t need to be 100, but many people find it helpful."</p>
+<p class="p1"><span class="Apple-converted-space">          </span>: "Great: both totals sum to 100.",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>totalAsp !== 100 || totalAct !== 100 ? "warn" : "ok"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>totals.append(pillAsp, pillAct, pillNote);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Charts</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const labels = state.map(r =&gt; r.label || "(Unnamed)");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const aspData = state.map(r =&gt; num(r.aspirational));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const actData = state.map(r =&gt; num(r.actual));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const diffs = state.map(r =&gt; num(r.aspirational) - num(r.actual));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const bg = labels.map((_, i) =&gt; colors[i % colors.length]);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateChart(aspChart, labels, aspData, bg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateChart(actChart, labels, actData, bg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateChart(diffChart, labels, diffs, diffs.map(v =&gt; v &gt;= 0 ? "#2AD1A3" : "#EF476F"));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateChart(chart, labels, data, backgroundColor) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>chart.data.labels = labels;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>chart.data.datasets[0].data = data;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>chart.data.datasets[0].backgroundColor = backgroundColor;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>chart.update();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function pill(text, cls="") {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const el = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>el.className = "pill " + cls;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>el.textContent = text;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return el;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function num(v) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const n = parseFloat(v);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return isNaN(n) ? 0 : n;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function sum(arr) { return arr.reduce((a,b)=&gt;a+b,0); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function fmt(n) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>// Trim trailing zeros while keeping small decimals crisp</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const s = Number(n).toFixed(2);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return s.replace(/\.00$/,"").replace(/(\.\d*[1-9])0$/,"$1");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function persistAndUpdate() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localStorage.setItem(STORAGE_KEY, JSON.stringify(state));</p>
+<p class="p1"><span class="Apple-converted-space">      </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function loadState() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const raw = localStorage.getItem(STORAGE_KEY);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return raw ? JSON.parse(raw) : null;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} catch { return null; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ----- Actions -----</p>
+<p class="p1"><span class="Apple-converted-space">    </span>addRowBtn.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>state.push({ label: "New Category", aspirational: 0, actual: 0 });</p>
+<p class="p1"><span class="Apple-converted-space">      </span>persistAndUpdate();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>resetBtn.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (confirm("Reset to the example data? This will overwrite your current inputs.")) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state = structuredClone(DEFAULT_DATA);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>persistAndUpdate();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>exportBtn.addEventListener("click", () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const url = URL.createObjectURL(blob);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const a = document.createElement("a");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>a.href = url; a.download = "wheel-of-life-data.json";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>importFile.addEventListener("change", async (e) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const file = e.target.files[0]; if (!file) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const text = await file.text();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const data = JSON.parse(text);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!Array.isArray(data)) throw new Error("Invalid format");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Basic shape check</p>
+<p class="p1"><span class="Apple-converted-space">        </span>for (const r of data) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>if (!("label" in r) || !("aspirational" in r) || !("actual" in r)) throw new Error("Missing fields");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>state = data;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>persistAndUpdate();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} catch (err) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert("Could not import JSON. Make sure it’s an array of {label, aspirational, actual}.");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} finally {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>e.target.value = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// First render</p>
+<p class="p1"><span class="Apple-converted-space">    </span>render();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
